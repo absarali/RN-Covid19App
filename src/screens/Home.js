@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Image } from "react-native";
 import { Switch, TouchableOpacity } from "react-native-gesture-handler";
 import { MaterialIcons, FontAwesome } from "@expo/vector-icons";
 
-const Home = () => {
+const Home = ({navigation}) => {
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
   return (
@@ -26,7 +26,11 @@ const Home = () => {
           In case of emergency call for immediate help.
         </Text>
         <View style={styles.buttonsView}>
-          <TouchableOpacity style={styles.buttonConatiner}>
+          <TouchableOpacity 
+          onPress={() => {
+            navigation.push('SymptomChecker1');
+          }}
+          style={styles.buttonConatiner}>
             <FontAwesome name="pencil" size={17} color="white" />
             <Text style={styles.button}>Take test</Text>
           </TouchableOpacity>

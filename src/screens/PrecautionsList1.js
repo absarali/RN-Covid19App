@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
-const PrecautionsList1 = () => {
+const PrecautionsList1 = ({navigation}) => {
   return (
     <View style={styles.main}>
       <Text style={styles.header}>Quarantine Yourself for 14 days.</Text>
@@ -11,7 +11,11 @@ const PrecautionsList1 = () => {
       </Text>
       <Text style = {styles.text}>Your information will be uploaded to our database and you will be monitored.</Text>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity
+       onPress={() => {
+        navigation.push('Home');
+      }} 
+         style={styles.button}>
           <Text style={styles.buttonText}>Finish</Text>
         </TouchableOpacity>
       </View>

@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
-const GettingStarted = () => {
+const GettingStarted = ({navigation}) => {
   return (
     <View style={styles.main}>
       <Text style={styles.heading}>nCOV</Text>
@@ -11,10 +11,20 @@ const GettingStarted = () => {
         fight against it.
       </Text>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button1}>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.push("Signin");
+          }}
+          style={styles.button1}
+        >
           <Text style={styles.buttonText}>Sign in</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button2}>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.push("Signup");
+          }}
+          style={styles.button2}
+        >
           <Text style={styles.buttonText}>Sign up</Text>
         </TouchableOpacity>
       </View>
@@ -27,7 +37,7 @@ export default GettingStarted;
 const styles = StyleSheet.create({
   main: {
     flex: 1,
-    paddingTop: '80%',
+    paddingTop: "80%",
     backgroundColor: "#45B39D",
     justifyContent: "center",
   },
@@ -56,12 +66,12 @@ const styles = StyleSheet.create({
   },
   button1: {
     paddingVertical: 20,
-    paddingHorizontal: 40
+    paddingHorizontal: 40,
   },
   button2: {
-      borderTopLeftRadius: 40,
-      backgroundColor: '#F4D03F',
+    borderTopLeftRadius: 40,
+    backgroundColor: "#F4D03F",
     paddingVertical: 20,
-    paddingHorizontal: 40
+    paddingHorizontal: 40,
   },
 });

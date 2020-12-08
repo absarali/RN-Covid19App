@@ -9,7 +9,9 @@ import StatisticsDetails from "./src/screens/StatisticsDetails";
 import GettingStarted from "./src/screens/GettingStarted";
 import Signin from "./src/screens/Signin";
 import Signup from "./src/screens/Signup";
-import SymptomChecker from "./src/screens/SymptomChecker";
+import SymptomChecker1 from "./src/screens/SymptomChecker1";
+import SymptomChecker2 from "./src/screens/SymptomChecker2";
+import SymptomChecker3 from "./src/screens/SymptomChecker3";
 import PrecautionsList1 from "./src/screens/PrecautionsList1";
 import PrecautionsList2 from "./src/screens/PrecautionsList2";
 import HighlightingRedZone from "./src/screens/HighlightingRedZone";
@@ -32,23 +34,8 @@ export default () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="StatisticsDetails"
-          component={StatisticsDetails}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Home"
-          component={BottomTabsNavigator}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="PrecautionsList2"
-          component={PrecautionsList2}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="PrecautionsList1"
-          component={PrecautionsList1}
+          name="GettingStarted"
+          component={GettingStarted}
           options={{ headerShown: false }}
         />
         <Stack.Screen
@@ -62,16 +49,43 @@ export default () => {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="GettingStarted"
-          component={GettingStarted}
+          name="Home"
+          component={BottomTabsNavigator}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="SymptomChecker1"
+          component={SymptomChecker1}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="SymptomChecker2"
+          component={SymptomChecker2}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="SymptomChecker3"
+          component={SymptomChecker3}
           options={{ headerShown: false }}
         />
 
         <Stack.Screen
-          name="SymptomChecker"
-          component={SymptomChecker}
+          name="StatisticsDetails"
+          component={StatisticsDetails}
           options={{ headerShown: false }}
         />
+
+        <Stack.Screen
+          name="PrecautionsList1"
+          component={PrecautionsList1}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="PrecautionsList2"
+          component={PrecautionsList2}
+          options={{ headerShown: false }}
+        />
+
         <Stack.Screen
           name="HighlightingRedZone"
           component={HighlightingRedZone}

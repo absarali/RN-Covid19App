@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
 
-const Signup = () => {
+const Signup = ({navigation}) => {
   return (
     <View style={styles.main}>
       <Text style={styles.header}>Sign up</Text>
@@ -15,7 +15,18 @@ const Signup = () => {
         <TextInput style={styles.input} />
       </View>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button}>
+      <TouchableOpacity
+          onPress={() => {
+            navigation.push("Signin");
+          }}
+        >
+          <Text style={styles.alternative}>Already a member? Signin here</Text>
+        </TouchableOpacity>
+        <TouchableOpacity 
+        onPress={() => {
+          navigation.push('Home');
+        }}
+        style={styles.button}>
           <Text style={styles.buttonText}>Sign up</Text>
         </TouchableOpacity>
       </View>
@@ -61,6 +72,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#45B39D',
   paddingVertical: 20,
   paddingHorizontal: 40
+  },
+  alternative: {
+    color: "blue",
+    paddingVertical: 20,
+    paddingHorizontal: 10,
   },
   buttonText: {
     color: "white",
