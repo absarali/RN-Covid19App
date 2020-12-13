@@ -6,16 +6,9 @@ import * as Location from "expo-location";
 const Explore = () => {
   const [location, setLocation] = useState({
     coords: {
-      accuracy: 603,
-      altitude: 0,
-      altitudeAccuracy: 0,
-      heading: 90,
-      latitude: 37.4219091,
-      longitude: -122.0840016,
-      speed: 0,
-    },
-    mocked: false,
-    timestamp: 1607860742876,
+      latitude: 0,
+      longitude: 0,
+    }
   });
 
   const [errorMsg, setErrorMsg] = useState(null);
