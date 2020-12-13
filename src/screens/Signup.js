@@ -1,18 +1,31 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import React, {useState} from "react";
+import { StyleSheet, Text, View, Alert } from "react-native";
 import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
 
 const Signup = ({navigation}) => {
+  const [name, setName] = useState('');
+  const [number, setNumber] = useState('')
+  const [key, setKey] = useState('');
   return (
     <View style={styles.main}>
       <Text style={styles.header}>Sign up</Text>
       <View style={styles.inputFields}>
-        <Text style={styles.placeholder}>Full Name</Text>
-        <TextInput style={styles.input} />
+        <Text style={styles.placeholder}>Username</Text>
+        <TextInput 
+        value={name}
+        onChangeText={(newValue) => setName(newValue)}
+        style={styles.input} />
         <Text style={styles.placeholder}>Phone Number</Text>
-        <TextInput style={styles.input} />
-        <Text style={styles.placeholder}>Email Address</Text>
-        <TextInput style={styles.input} />
+        <TextInput 
+        value={number}
+        onChangeText={(newValue) => setNumber(newValue)}
+        style={styles.input} />
+        <Text style={styles.placeholder}>Password</Text>
+        <TextInput 
+        value={key}
+        onChangeText={(newValue) => setKey(newValue)}
+        secureTextEntry={true}
+        style={styles.input} />
       </View>
       <View style={styles.buttonContainer}>
       <TouchableOpacity
@@ -24,7 +37,24 @@ const Signup = ({navigation}) => {
         </TouchableOpacity>
         <TouchableOpacity 
         onPress={() => {
-          navigation.push('Home');
+          if (name.length>0 && key.length>0) {
+            navigation.push("Home");
+            }
+            else {
+              Alert.alert(
+                "Error",
+                "Please fill the required fields",
+                [
+                  {
+                    text: "Cancel",
+                    onPress: () => console.log("Cancel Pressed"),
+                    style: "cancel",
+                  },
+                  { text: "OK", onPress: () => console.log("OK Pressed") },
+                ],
+                { cancelable: false }
+              );
+            }
         }}
         style={styles.button}>
           <Text style={styles.buttonText}>Sign up</Text>

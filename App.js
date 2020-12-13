@@ -39,6 +39,16 @@ export default () => {
           options={{ headerShown: false }}
         />
         <Stack.Screen
+          name="Home"
+          component={BottomTabsNavigator}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="HighlightingRedZone"
+          component={HighlightingRedZone}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
           name="Signin"
           component={Signin}
           options={{ headerShown: false }}
@@ -46,11 +56,6 @@ export default () => {
         <Stack.Screen
           name="Signup"
           component={Signup}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Home"
-          component={BottomTabsNavigator}
           options={{ headerShown: false }}
         />
         <Stack.Screen
@@ -68,13 +73,11 @@ export default () => {
           component={SymptomChecker3}
           options={{ headerShown: false }}
         />
-
         <Stack.Screen
           name="StatisticsDetails"
           component={StatisticsDetails}
           options={{ headerShown: false }}
         />
-
         <Stack.Screen
           name="PrecautionsList1"
           component={PrecautionsList1}
@@ -83,12 +86,6 @@ export default () => {
         <Stack.Screen
           name="PrecautionsList2"
           component={PrecautionsList2}
-          options={{ headerShown: false }}
-        />
-
-        <Stack.Screen
-          name="HighlightingRedZone"
-          component={HighlightingRedZone}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

@@ -1,11 +1,24 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, Linking } from "react-native";
 import { Switch, TouchableOpacity } from "react-native-gesture-handler";
 import { MaterialIcons, FontAwesome } from "@expo/vector-icons";
 
 const Home = ({navigation}) => {
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
+  const dialCall = () => {
+
+    let phoneNumber = '';
+
+    if (Platform.OS === 'android') {
+      phoneNumber = 'tel:${+923042864816}';
+    }
+    else {
+      phoneNumber = 'telprompt:${+923042864816}';
+    }
+
+    Linking.openURL(phoneNumber);
+  };
   return (
     <View style={styles.main}>
       <View style={styles.CovidInfo}>
@@ -20,8 +33,14 @@ const Home = ({navigation}) => {
           />
         </View>
         <Text style={styles.heading2}>In Quarantine</Text>
-        <Text style={styles.text}>11 days in Quarantine</Text>
-        <Text style={styles.text}>3 days to go</Text>
+        <View style = {styles.textView}>
+        <Text style = {styles.textValue}>11 </Text>
+        <Text style={styles.text}>days in Quarantine</Text>
+        </View>
+        <View style = {styles.textView}>
+        <Text style = {styles.textValue}>3 </Text>
+        <Text style={styles.text}>days to go</Text>
+        </View>
         <Text style={styles.textInfo}>
           In case of emergency call for immediate help.
         </Text>
@@ -34,7 +53,11 @@ const Home = ({navigation}) => {
             <FontAwesome name="pencil" size={17} color="white" />
             <Text style={styles.button}>Take test</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.buttonConatiner}>
+          <TouchableOpacity 
+          onPress = {()=> {
+            dialCall()
+          }}
+          style={styles.buttonConatiner}>
             <MaterialIcons name="call" size={18} color="white" />
             <Text style={styles.button}>Call us</Text>
           </TouchableOpacity>
@@ -105,6 +128,14 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     color: "white",
+  },
+  textView:{
+    flexDirection: 'row'
+  },
+  textValue:{
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 14
   },
   text: {
     color: "silver",
