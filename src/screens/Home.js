@@ -11,10 +11,10 @@ const Home = ({navigation}) => {
     let phoneNumber = '';
 
     if (Platform.OS === 'android') {
-      phoneNumber = 'tel:${+923042864816}';
+      phoneNumber = 'tel:${+0123456789}';
     }
     else {
-      phoneNumber = 'telprompt:${+923042864816}';
+      phoneNumber = 'telprompt:${+0123456789}';
     }
 
     Linking.openURL(phoneNumber);
